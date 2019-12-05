@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/backWordCard"
+  android:layout_width="match_parent"
+  android:layout_height="@dimen/height_card">
+
+  <TextView
+    android:id="@+id/onlyPronounView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:gravity="center"
+    android:textAppearance="@style/TextAppearance.AppCompat.Display3"/>
+
+  <RelativeLayout
+    android:id="@+id/pronounMeaningView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:padding="@dimen/spacing_half">
+
+    <TextView
+      android:id="@+id/pronounView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:gravity="center"
+      android:textSize="@dimen/text_size_flash_pronoun"/>
+
+    <TextView
+      android:id="@+id/meaningView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/pronounView"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="@dimen/spacing_1x"
+      android:gravity="center"
+      android:textSize="@dimen/text_size_flash_meaning"
+      android:textStyle="bold"/>
+  </RelativeLayout>
+
+  <ImageButton
+    android:id="@+id/hear"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="?android:selectableItemBackground"
+    android:contentDescription="@string/app_name"
+    android:padding="@dimen/spacing_1x"
+    android:src="@drawable/ic_hearing_black_24dp"
+    android:textColor="@color/white"/>
+
+  <ImageView
+    android:id="@+id/cardPinBt"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:contentDescription="@string/app_name"
+    android:gravity="center"
+    android:padding="@dimen/spacing_1x"
+    android:src="@drawable/ic_check_black_24dp"/>
+
+  <LinearLayout
+    android:id="@+id/dictionaryLayer"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:layout_marginBottom="@dimen/spacing_half"
+    android:orientation="horizontal"/>
+
+  <TextView
+    android:id="@+id/backMaskingLayer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_trans50"
+    android:visibility="gone"/>
+
+  <ImageView
+    android:id="@+id/backCompleteFlag"
+    android:layout_width="100dp"
+    android:layout_height="30dp"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_marginBottom="@dimen/spacing_half"
+    android:contentDescription="@string/app_name"
+    android:src="@drawable/card_complete"/>
+
+</RelativeLayout>

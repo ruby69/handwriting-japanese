@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <shape android:shape="line">
+      <stroke
+        android:width="1dp"
+        android:color="@color/bluegrey_light"/>
+    </shape>
+  </item>
+
+  <item>
+    <rotate
+      android:fromDegrees="90"
+      android:toDegrees="90">
+
+      <shape android:shape="line">
+        <stroke
+          android:width="1dp"
+          android:color="@color/bluegrey_light"/>
+      </shape>
+
+    </rotate>
+  </item>
+
+</layer-list>

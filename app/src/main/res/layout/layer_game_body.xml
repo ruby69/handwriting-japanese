@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <Button
+      android:id="@+id/bt01"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt02"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt03"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt04"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt05"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <Button
+      android:id="@+id/bt06"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt07"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt08"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt09"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt10"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <Button
+      android:id="@+id/bt11"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt12"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt13"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt14"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt15"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <Button
+      android:id="@+id/bt16"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt17"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt18"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt19"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt20"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <Button
+      android:id="@+id/bt21"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt22"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt23"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt24"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+
+    <Button
+      android:id="@+id/bt25"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:background="@drawable/bg_button_game"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_game_character"/>
+  </LinearLayout>
+</merge>

@@ -1,0 +1,121 @@
+apply plugin: 'com.android.application'
+apply plugin: 'idea'
+apply plugin: 'io.fabric'
+
+def appVersionCode = 175
+def appVersionName = '1.7.5'
+
+android {
+    compileSdkVersion 29
+
+    dexOptions {
+        jumboMode = true
+        javaMaxHeapSize "2g"
+    }
+
+    defaultConfig {
+        applicationId "com.appskimo.app.japanese"
+        minSdkVersion 17
+        targetSdkVersion 29
+        versionCode appVersionCode
+        versionName appVersionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            debuggable false
+            zipAlignEnabled true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            proguardFile 'proguard-aa.pro'
+            proguardFile 'proguard-common.pro'
+            proguardFile 'proguard-eventbus.pro'
+            proguardFile 'proguard-fabric.pro'
+            proguardFile 'proguard-firebase.pro'
+            proguardFile 'proguard-ormlite.pro'
+            proguardFile 'proguard-daimajia.pro'
+            proguardFile 'proguard-glide.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/AUTHORS'
+        exclude 'META-INF/changelog.txt'
+        exclude 'META-INF/release-timestamp.txt'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+    flatDir { dirs 'libs' }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // https://developer.android.com/jetpack/androidx/releases/archive/androidx
+    // https://developer.android.com/jetpack/androidx/releases
+    annotationProcessor 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.google.android.material:material:1.2.0-alpha02'
+
+    // https://firebase.google.com/docs/android/setup
+    // https://firebase.google.com/support/release-notes/android
+    implementation 'com.google.firebase:firebase-core:17.2.1'
+    implementation 'com.google.firebase:firebase-ads:18.3.0'
+    implementation 'com.google.firebase:firebase-messaging:20.0.1'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.10.1@aar') {
+        transitive = true
+    }
+
+    annotationProcessor 'org.androidannotations:androidannotations:4.7.0-SNAPSHOT'
+    implementation 'org.androidannotations:androidannotations-api:4.7.0-SNAPSHOT'
+    annotationProcessor 'org.androidannotations:ormlite:4.7.0-SNAPSHOT'
+    implementation 'org.androidannotations:ormlite-api:4.7.0-SNAPSHOT'
+    compileOnly 'org.projectlombok:lombok:1.16.20'
+    annotationProcessor 'org.projectlombok:lombok:1.16.20'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    implementation 'org.apache.commons:commons-lang3:3.7'
+    implementation 'com.j256.ormlite:ormlite-android:5.1'
+
+    implementation project(':android-pathview')
+    implementation project(':spinnerwheel')
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
+    implementation 'com.daimajia.easing:library:2.1@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+    implementation 'com.github.gcacace:signature-pad:1.2.1'
+}
+
+idea {
+    module {
+        downloadSources = true
+    }
+}
+
+apply plugin: 'com.google.gms.google-services'
+

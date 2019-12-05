@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="nav_header_height">80dp</dimen>
+
+  <dimen name="text_size_writing_pronoun">14sp</dimen>
+  <dimen name="text_size_writing_meaning">14sp</dimen>
+  <dimen name="text_size_flash_pronoun">14sp</dimen>
+  <dimen name="text_size_flash_meaning">16sp</dimen>
+
+  <dimen name="text_size_game_character">20sp</dimen>
+  <dimen name="text_size_game_meaning1">14sp</dimen>
+  <dimen name="text_size_game_meaning2">12sp</dimen>
+  <dimen name="text_size_game_meaning3">10sp</dimen>
+  <dimen name="text_size_game_chronometer">18sp</dimen>
+  <dimen name="text_size_game_score">18sp</dimen>
+
+  <dimen name="game_top_height">120dp</dimen>
+  <dimen name="game_bottom_height">50dp</dimen>
+  <dimen name="game_meaning2_width">120dp</dimen>
+  <dimen name="game_meaning3_width">80dp</dimen>
+  <dimen name="button_corner_radius">2dp</dimen>
+
+  <dimen name="note_width">180dp</dimen>
+  <dimen name="note_min_height">100dp</dimen>
+  <dimen name="height_card">250dp</dimen>
+
+  <dimen name="spacing_quarter">2dp</dimen>
+  <dimen name="spacing_half">4dp</dimen>
+  <dimen name="spacing_1x">8dp</dimen>
+  <dimen name="spacing_2x">16dp</dimen>
+  <dimen name="spacing_3x">24dp</dimen>
+  <dimen name="spacing_4x">32dp</dimen>
+  <dimen name="spacing_5x">40dp</dimen>
+  <dimen name="spacing_6x">48dp</dimen>
+  <dimen name="spacing_7x">56dp</dimen>
+  <dimen name="spacing_8x">64dp</dimen>
+  <dimen name="spacing_9x">72dp</dimen>
+
+  <dimen name="text_size_character_max">45sp</dimen>
+  <dimen name="text_size_character_min">14sp</dimen>
+  <dimen name="text_size_character_default">24sp</dimen>
+
+  <dimen name="stroke_guide_top_spacing1">@dimen/spacing_4x</dimen>
+  <dimen name="stroke_guide_top_spacing2">@dimen/spacing_2x</dimen>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <Button
+    android:id="@+id/dictionaryLink"
+    android:layout_width="wrap_content"
+    android:layout_height="30dp"
+    android:layout_margin="@dimen/spacing_1x"
+    android:background="@drawable/button_bg_navy"
+    android:padding="@dimen/spacing_half"
+    android:textAllCaps="false"
+    android:textAppearance="@style/TextAppearance.AppCompat.Button"
+    android:textColor="@color/white"/>
+
+</merge>

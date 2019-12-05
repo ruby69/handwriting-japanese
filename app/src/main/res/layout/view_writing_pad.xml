@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+      android:id="@+id/noteView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentRight="true"
+      android:background="@color/bluegrey_light"
+      android:minHeight="@dimen/note_min_height"
+      android:minWidth="100dp">
+
+      <TextView
+        android:id="@+id/onlyPronounView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/spacing_3x"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:visibility="gone"/>
+
+      <LinearLayout
+        android:id="@+id/pronounMeaningView"
+        android:layout_width="@dimen/note_width"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/spacing_3x"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_1x">
+
+        <TextView
+          android:id="@+id/pronounView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:gravity="center"
+          android:textSize="@dimen/text_size_writing_pronoun"/>
+
+        <TextView
+          android:id="@+id/meaningView"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginTop="@dimen/spacing_1x"
+          android:gravity="center"
+          android:maxLines="100"
+          android:textSize="@dimen/text_size_writing_meaning"/>
+      </LinearLayout>
+    </RelativeLayout>
+
+    <com.eftimoff.androipathview.PathView
+      android:id="@+id/strokeView"
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      app:pathColor="@color/black_trans50"
+      app:pathWidth="5"/>
+
+    <com.eftimoff.androipathview.PathView
+      android:id="@+id/guideView"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="@dimen/stroke_guide_top_spacing1"
+      android:background="@drawable/bg_graph_paper"
+      app:pathColor="@color/black_trans10"/>
+
+    <com.appskimo.app.japanese.ui.view.StrokeOrderView
+      android:id="@+id/strokeOrderView"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
+
+    <com.github.gcacace.signaturepad.views.SignaturePad
+      android:id="@+id/signaturePad"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:penColor="@android:color/black"/>
+
+    <RelativeLayout
+      android:id="@+id/checkLayer"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentRight="true"
+      android:paddingBottom="@dimen/spacing_2x"
+      android:paddingEnd="@dimen/spacing_half"
+      android:paddingLeft="@dimen/spacing_2x"
+      android:paddingRight="@dimen/spacing_half"
+      android:paddingStart="@dimen/spacing_2x"
+      android:paddingTop="@dimen/spacing_half">
+
+      <ImageView
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_check_black_24dp"
+        android:tint="@color/grey_light"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true">
+
+      <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fab_colorNormal="@color/white"
+        app:fab_colorPressed="@color/pink_light"
+        app:fab_icon="@drawable/ic_clear_all_black_24dp"
+        app:fab_size="mini"/>
+
+      <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/hear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clear"
+        app:fab_colorNormal="@color/white"
+        app:fab_colorPressed="@color/pink_light"
+        app:fab_icon="@drawable/ic_hearing_black_24dp"
+        app:fab_size="mini"/>
+
+      <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/stroke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clear"
+        android:layout_toEndOf="@+id/hear"
+        android:layout_toRightOf="@+id/hear"
+        app:fab_colorNormal="@color/white"
+        app:fab_colorPressed="@color/pink_light"
+        app:fab_icon="@drawable/ic_play_arrow_black_24dp"
+        app:fab_size="mini"/>
+
+      <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/prev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clear"
+        android:layout_toEndOf="@+id/stroke"
+        android:layout_toRightOf="@+id/stroke"
+        app:fab_colorNormal="@color/white"
+        app:fab_colorPressed="@color/pink_light"
+        app:fab_icon="@drawable/ic_navigate_before_black_24dp"
+        app:fab_size="mini"/>
+
+      <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clear"
+        android:layout_toEndOf="@+id/prev"
+        android:layout_toRightOf="@+id/prev"
+        app:fab_colorNormal="@color/white"
+        app:fab_colorPressed="@color/pink_light"
+        app:fab_icon="@drawable/ic_navigate_next_black_24dp"
+        app:fab_size="mini"/>
+
+      <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/random"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clear"
+        android:layout_toEndOf="@+id/next"
+        android:layout_toRightOf="@+id/next"
+        app:fab_colorNormal="@color/white"
+        app:fab_colorPressed="@color/pink_light"
+        app:fab_icon="@drawable/ic_shuffle_black_24dp"
+        app:fab_size="mini"/>
+
+    </RelativeLayout>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+      android:id="@+id/writingSettings"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentRight="true"
+      app:fab_addButtonColorNormal="@color/pink"
+      app:fab_addButtonColorPressed="@color/pink_light"
+      app:fab_addButtonSize="mini">
+
+      <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/showNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fab_colorNormal="@color/pink_light"
+        app:fab_colorPressed="@color/pink_light"
+        app:fab_icon="@drawable/ic_speaker_notes_black_24dp"
+        app:fab_size="mini"/>
+
+      <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/showGuideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fab_colorNormal="@color/pink_light"
+        app:fab_colorPressed="@color/pink_light"
+        app:fab_icon="@drawable/ic_brush_black_24dp"
+        app:fab_size="mini"/>
+
+      <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/showStrokeOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fab_colorNormal="@color/pink_light"
+        app:fab_colorPressed="@color/pink_light"
+        app:fab_icon="@drawable/ic_filter_1_black_24dp"
+        app:fab_size="mini"/>
+
+      <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/tunePlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fab_colorNormal="@color/white"
+        app:fab_colorPressed="@color/pink_light"
+        app:fab_icon="@drawable/ic_tune_black_24dp"
+        app:fab_size="mini"/>
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+  </RelativeLayout>
+</merge>

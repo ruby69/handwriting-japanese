@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/bluegrey_dark">
+
+  <RelativeLayout
+    android:id="@+id/topLayer"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/game_top_height"
+    android:layout_alignParentTop="true">
+
+    <TextView
+      android:id="@+id/meaningView1"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:layout_marginEnd="@dimen/spacing_4x"
+      android:layout_marginLeft="@dimen/spacing_4x"
+      android:layout_marginRight="@dimen/spacing_4x"
+      android:layout_marginStart="@dimen/spacing_4x"
+      android:gravity="center"
+      android:maxLines="2"
+      android:textSize="@dimen/text_size_game_meaning1"
+      android:textColor="@color/white"/>
+
+    <TextView
+      android:id="@+id/meaningView3"
+      android:layout_width="@dimen/game_meaning3_width"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentRight="true"
+      android:layout_marginEnd="@dimen/spacing_half"
+      android:layout_marginRight="@dimen/spacing_half"
+      android:ellipsize="end"
+      android:gravity="right|end"
+      android:maxLines="1"
+      android:textSize="@dimen/text_size_game_meaning3"
+      android:textColor="@color/white_trans20"/>
+
+    <TextView
+      android:id="@+id/meaningView2"
+      android:layout_width="@dimen/game_meaning2_width"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_marginEnd="@dimen/spacing_2x"
+      android:layout_marginRight="@dimen/spacing_2x"
+      android:layout_toLeftOf="@id/meaningView3"
+      android:layout_toStartOf="@id/meaningView3"
+      android:ellipsize="end"
+      android:gravity="right|end"
+      android:maxLines="1"
+      android:textSize="@dimen/text_size_game_meaning2"
+      android:textColor="@color/white_trans50"/>
+
+    <Chronometer
+      android:id="@+id/chronometer"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentRight="true"
+      android:layout_marginEnd="@dimen/spacing_2x"
+      android:layout_marginRight="@dimen/spacing_2x"
+      android:layout_marginTop="@dimen/spacing_half"
+      android:textSize="@dimen/text_size_game_chronometer"
+      android:textColor="@color/white_trans50"/>
+
+    <TextView
+      android:id="@+id/scoreView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="true"
+      android:layout_marginLeft="@dimen/spacing_2x"
+      android:layout_marginStart="@dimen/spacing_2x"
+      android:layout_marginTop="@dimen/spacing_half"
+      android:textSize="@dimen/text_size_game_score"
+      android:textColor="@color/white_trans50"/>
+  </RelativeLayout>
+
+  <LinearLayout
+    android:id="@+id/bodyLayer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/bottomLayer"
+    android:layout_below="@+id/topLayer"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <include layout="@layout/layer_game_body"/>
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/bottomLayer"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/game_bottom_height"
+    android:layout_alignParentBottom="true"
+    android:gravity="center"
+    android:orientation="horizontal">
+  </LinearLayout>
+
+  <TextView
+    android:id="@+id/countDown"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:gravity="center"
+    android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+    android:textColor="@color/pink_light"
+    android:textStyle="bold"
+    android:visibility="invisible"/>
+</RelativeLayout>

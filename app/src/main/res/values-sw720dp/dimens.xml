@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="text_size_writing_pronoun">22sp</dimen>
+  <dimen name="text_size_writing_meaning">24sp</dimen>
+  <dimen name="text_size_flash_pronoun">18sp</dimen>
+  <dimen name="text_size_flash_meaning">22sp</dimen>
+
+  <dimen name="text_size_game_character">45sp</dimen>
+  <dimen name="text_size_game_meaning1">30sp</dimen>
+  <dimen name="text_size_game_meaning2">26sp</dimen>
+  <dimen name="text_size_game_meaning3">18sp</dimen>
+  <dimen name="text_size_game_chronometer">45sp</dimen>
+  <dimen name="text_size_game_score">45sp</dimen>
+
+  <dimen name="game_top_height">180dp</dimen>
+  <dimen name="game_bottom_height">100dp</dimen>
+  <dimen name="game_meaning2_width">230dp</dimen>
+  <dimen name="game_meaning3_width">150dp</dimen>
+  <dimen name="button_corner_radius">6dp</dimen>
+
+  <dimen name="note_width">380dp</dimen>
+  <dimen name="note_min_height">130dp</dimen>
+</resources>

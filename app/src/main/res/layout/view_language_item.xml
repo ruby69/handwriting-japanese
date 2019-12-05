@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_half">
+
+    <RelativeLayout
+      android:id="@+id/displayNameLayer"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="?android:selectableItemBackground"
+      android:paddingBottom="@dimen/spacing_2x"
+      android:paddingEnd="@dimen/spacing_1x"
+      android:paddingLeft="@dimen/spacing_1x"
+      android:paddingRight="@dimen/spacing_1x"
+      android:paddingStart="@dimen/spacing_1x"
+      android:paddingTop="@dimen/spacing_2x">
+
+      <TextView
+        android:id="@+id/displayNameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+    </RelativeLayout>
+
+  </androidx.cardview.widget.CardView>
+</merge>

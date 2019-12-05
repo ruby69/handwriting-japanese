@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="@dimen/nav_header_height"
+  android:background="@drawable/side_nav_bar"
+  android:padding="@dimen/spacing_half"
+  android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+  <TextView
+    android:id="@+id/language"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:background="?android:selectableItemBackground"
+    android:padding="@dimen/spacing_1x"
+    android:text="hello"/>
+
+  <TextView
+    android:id="@+id/appNameView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/language"
+    android:padding="@dimen/spacing_1x"
+    android:text="@string/app_name"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+</RelativeLayout>
+
+
+  <!--android:paddingTop="@dimen/spacing_2x"-->
+  <!--android:paddingBottom="@dimen/spacing_half"-->
+  <!--android:paddingEnd="@dimen/spacing_quarter"-->
+  <!--android:paddingLeft="@dimen/spacing_2x"-->
+  <!--android:paddingRight="@dimen/spacing_quarter"-->
+  <!--android:paddingStart="@dimen/spacing_2x"-->
+  <!--android:paddingTop="@dimen/spacing_half"-->
+  <!--android:paddingBottom="@dimen/spacing_2x"-->
+  <!--android:paddingEnd="@dimen/spacing_2x"-->
+  <!--android:paddingLeft="@dimen/spacing_2x"-->
+  <!--android:paddingRight="@dimen/spacing_2x"-->
+  <!--android:paddingStart="@dimen/spacing_2x"-->
+  <!--android:paddingTop="@dimen/spacing_2x"-->

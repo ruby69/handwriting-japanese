@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_2x">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <TextView
+        android:id="@+id/rankView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rank"
+        android:paddingBottom="@dimen/spacing_half"
+        android:paddingEnd="@dimen/spacing_2x"
+        android:paddingLeft="@dimen/spacing_2x"
+        android:paddingRight="@dimen/spacing_2x"
+        android:paddingTop="@dimen/spacing_half"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+      <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/spacing_4x">
+
+        <TextView
+          android:id="@+id/scoreView"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:textAppearance="@style/TextAppearance.AppCompat.Display2"/>
+
+        <LinearLayout
+          android:id="@+id/playInfoLayer"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/scoreView"
+          android:orientation="horizontal">
+
+          <TextView
+            android:id="@+id/comboCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_2x"
+            android:layout_marginRight="@dimen/spacing_2x"
+            android:layout_weight="1"
+            android:gravity="right|end"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+
+          <TextView
+            android:id="@+id/timeRecord"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_2x"
+            android:layout_marginStart="@dimen/spacing_2x"
+            android:layout_weight="1"
+            android:gravity="left|start"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+
+        </LinearLayout>
+
+        <TextView
+          android:id="@+id/dictionaryTitle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/playInfoLayer"
+          android:layout_centerHorizontal="true"
+          android:layout_margin="@dimen/spacing_2x"
+          android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+      </RelativeLayout>
+
+      <TextView
+        android:id="@+id/registDateView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/spacing_2x"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+    </RelativeLayout>
+  </androidx.cardview.widget.CardView>
+</merge>

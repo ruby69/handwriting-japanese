@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/bluegrey_dark">
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recyclerView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:paddingBottom="@dimen/spacing_7x"
+    android:paddingTop="@dimen/spacing_4x"/>
+
+  <RelativeLayout
+    android:id="@+id/skipGuideView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:background="@color/white_trans10"
+    android:padding="@dimen/spacing_2x"
+    android:visibility="gone">
+
+    <LinearLayout
+      android:id="@+id/skipIcon"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_centerVertical="true"
+      android:orientation="horizontal">
+
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_navigate_before_black_24dp"
+        android:tint="@color/white_trans80"/>
+
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_navigate_before_black_24dp"
+        android:tint="@color/white_trans80"/>
+
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_navigate_before_black_24dp"
+        android:tint="@color/white_trans80"/>
+
+    </LinearLayout>
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/skipIcon"
+      android:layout_marginLeft="@dimen/spacing_2x"
+      android:layout_marginStart="@dimen/spacing_2x"
+      android:layout_marginTop="@dimen/spacing_2x"
+      android:text="@string/message_skip"
+      android:textAppearance="@style/TextAppearance.AppCompat.Title"
+      android:textColor="@color/bluegrey_light"/>
+  </RelativeLayout>
+
+  <RelativeLayout
+    android:id="@+id/completeGuideView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:background="@color/white_trans10"
+    android:padding="@dimen/spacing_2x"
+    android:visibility="gone">
+
+    <LinearLayout
+      android:id="@+id/completeIcon"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_centerVertical="true"
+      android:gravity="right"
+      android:orientation="horizontal">
+
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_navigate_next_black_24dp"
+        android:tint="@color/white_trans80"/>
+
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_navigate_next_black_24dp"
+        android:tint="@color/white_trans80"/>
+
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_navigate_next_black_24dp"
+        android:tint="@color/white_trans80"/>
+
+    </LinearLayout>
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentRight="true"
+      android:layout_below="@+id/completeIcon"
+      android:layout_marginEnd="@dimen/spacing_2x"
+      android:layout_marginRight="@dimen/spacing_2x"
+      android:layout_marginTop="@dimen/spacing_2x"
+      android:text="@string/message_complete"
+      android:textAppearance="@style/TextAppearance.AppCompat.Title"
+      android:textColor="@color/bluegrey_light"/>
+  </RelativeLayout>
+
+  <com.getbase.floatingactionbutton.FloatingActionsMenu
+    android:id="@+id/cardMenu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    app:fab_addButtonColorNormal="@color/pink"
+    app:fab_addButtonColorPressed="@color/pink_light"
+    app:fab_addButtonSize="mini"
+    app:fab_labelStyle="@style/shortcut_labels_style"
+    app:fab_labelsPosition="left">
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+      android:id="@+id/shuffle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:fab_colorNormal="@color/white"
+      app:fab_colorPressed="@color/pink_light"
+      app:fab_icon="@drawable/ic_shuffle_black_24dp"
+      app:fab_size="mini"
+      app:fab_title="@string/label_card_shuffle"/>
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+      android:id="@+id/reset"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:fab_colorNormal="@color/white"
+      app:fab_colorPressed="@color/pink_light"
+      app:fab_icon="@drawable/ic_refresh_black_24dp"
+      app:fab_size="mini"
+      app:fab_title="@string/label_card_reset"/>
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+      android:id="@+id/mode"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:fab_colorNormal="@color/white"
+      app:fab_colorPressed="@color/pink_light"
+      app:fab_icon="@drawable/ic_flag_black_24dp"
+      app:fab_size="mini"
+      app:fab_title="@string/label_card_comp"/>
+
+  </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+</RelativeLayout>

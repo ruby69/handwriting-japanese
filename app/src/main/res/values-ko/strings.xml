@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="nav_title_list">목록보기</string>
+  <string name="nav_title_card">암기카드</string>
+  <string name="nav_title_games">Games</string>
+  <string name="nav_title_font">글자 크기</string>
+  <string name="nav_title_tts_help">음성설정 참조</string>
+
+  <string name="message_selectDictionary">다른항목을 선택해주세요.</string>
+  <string name="message_networkState">네트워크 상태를 확인해 주세요.</string>
+  <string name="message_exit">\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.</string>
+  <string name="message_db_fail">이런..\n데이터베이스 초기화에 실패하였습니다.</string>
+  <string name="message_wait">잠시만 기다려 주세요.</string>
+  <string name="message_progress_initialize">초기화중</string>
+  <string name="message_progress_loading">로딩중</string>
+  <string name="message_progress_update">업데이트중</string>
+
+  <string name="message_skip">통과</string>
+  <string name="message_complete">암기완료</string>
+
+  <string name="label_repeat_count">반복횟수</string>
+  <string name="label_stroke_speed">속도</string>
+  <string name="label_stroke_animation">애니메이션 설정</string>
+  <string name="label_confirm">확인</string>
+  <string name="label_continue">계속</string>
+
+  <string name="label_game_move_to_main">메인</string>
+  <string name="label_game_retry">다시하기</string>
+  <string name="label_game_history">결과기록</string>
+  <string name="label_game_play">Play</string>
+  <string name="label_game_combo" formatted="false">%s (max)</string>
+  <string name="label_game_combo1" formatted="false">%s 콤보</string>
+  <string name="label_game_select_category">카테고리</string>
+  <string name="label_game_select_count">단어수</string>
+  <string name="label_game_select_hint_delay">힌트타임</string>
+  <string name="label_game_pause">일시멈춤</string>
+  <string name="label_game_quit">종료</string>
+  <string name="label_game_resume">계속</string>
+
+  <string name="label_card_reset">초기화</string>
+  <string name="label_card_shuffle">섞기</string>
+  <string name="label_card_comp">암기완료</string>
+  <string name="label_card_uncomp">암기중</string>
+  <string name="label_finish">네, 지금 종료합니다</string>
+  <string name="label_game_finish">네, 워드 게임을 종료합니다.</string>
+
+  <string name="label_font_tiny">아주 작게</string>
+  <string name="label_font_small">작게</string>
+  <string name="label_font_normal">보통</string>
+  <string name="label_font_large">크게</string>
+  <string name="label_font_scale">글자 크기</string>
+
+  <string name="nav_title_app1">유튜브 음악차트</string>
+  <string name="nav_title_app2">한눈에 보는 KPOP</string>
+  <string name="nav_title_app3">일본어 단어 JLPT N1</string>
+  <string name="nav_title_app4">일본어 단어 JLPT N2</string>
+  <string name="nav_title_app5">일본어 단어 JLPT N3</string>
+  <string name="nav_title_app6">일본어 단어 JLPT N4</string>
+  <string name="nav_title_app7">일본어 단어 JLPT N5</string>
+
+</resources>

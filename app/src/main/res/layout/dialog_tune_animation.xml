@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="horizontal">
+
+  <RelativeLayout
+    android:id="@+id/repeatCountLayer"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1">
+
+    <TextView
+      android:id="@+id/repeatCountLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_margin="@dimen/spacing_2x"
+      android:text="@string/label_repeat_count"
+      android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+
+    <antistatic.spinnerwheel.WheelVerticalView
+      android:id="@+id/repeatCount"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/repeatCountLabel"
+      android:layout_centerHorizontal="true"
+      app:selectionDivider="@drawable/spinner_divider"/>
+  </RelativeLayout>
+
+  <RelativeLayout
+    android:id="@+id/strokeSpeedLayer"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1">
+
+    <TextView
+      android:id="@+id/strokeSpeedLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_margin="@dimen/spacing_2x"
+      android:text="@string/label_stroke_speed"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+    <antistatic.spinnerwheel.WheelVerticalView
+      android:id="@+id/strokeSpeed"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/strokeSpeedLabel"
+      android:layout_centerHorizontal="true"
+      app:selectionDivider="@drawable/spinner_divider"/>
+  </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/scales"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:gravity="center_horizontal"
+  android:orientation="vertical"
+  android:padding="@dimen/spacing_2x">
+
+  <RadioButton
+    android:id="@+id/tiny"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/spacing_1x"
+    android:tag="0.70"
+    android:text="@string/label_font_tiny"
+    android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_marginBottom="@dimen/spacing_1x"
+    android:layout_marginTop="@dimen/spacing_1x"
+    android:background="@color/colorAccentLight"/>
+
+  <RadioButton
+    android:id="@+id/small"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/spacing_1x"
+    android:tag="0.85"
+    android:text="@string/label_font_small"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_marginBottom="@dimen/spacing_1x"
+    android:layout_marginTop="@dimen/spacing_1x"
+    android:background="@color/colorAccentLight"/>
+
+  <RadioButton
+    android:id="@+id/normal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/spacing_1x"
+    android:tag="1.00"
+    android:text="@string/label_font_normal"
+    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_marginBottom="@dimen/spacing_1x"
+    android:layout_marginTop="@dimen/spacing_1x"
+    android:background="@color/colorAccentLight"/>
+
+  <RadioButton
+    android:id="@+id/large"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/spacing_1x"
+    android:tag="1.15"
+    android:text="@string/label_font_large"
+    android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
+</RadioGroup>
+
+

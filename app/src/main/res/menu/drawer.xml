@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <group
+    android:id="@+id/grp1"
+    android:checkableBehavior="single">
+    <item
+      android:id="@+id/menuList"
+      android:checked="true"
+      android:icon="@drawable/ic_apps_black_24dp"
+      android:title="@string/nav_title_list" />
+    <item
+      android:id="@+id/menuFlashCard"
+      android:icon="@drawable/ic_view_stream_black_24dp"
+      android:title="@string/nav_title_card" />
+    <item
+      android:id="@+id/menuGames"
+      android:checkable="false"
+      android:icon="@drawable/ic_gamepad_black_24dp"
+      android:title="@string/nav_title_games" />
+
+    <item
+      android:id="@+id/fontScale"
+      android:checkable="false"
+      android:icon="@drawable/ic_format_size_black_24dp"
+      android:title="@string/nav_title_font"/>
+
+    <item
+      android:id="@+id/ttsLink"
+      android:checkable="false"
+      android:icon="@drawable/ic_help_black_24dp"
+      android:title="@string/nav_title_tts_help" />
+  </group>
+
+  <group
+    android:id="@+id/grp2"
+    android:checkableBehavior="single">
+
+    <item android:title="@string/nav_title_more_apps">
+      <menu>
+        <!--<item-->
+          <!--android:id="@+id/extMenu1"-->
+          <!--android:checkable="false"-->
+          <!--android:icon="@drawable/ic_get_app_black_24dp"-->
+          <!--android:title="@string/nav_title_app1" />-->
+
+        <item
+          android:id="@+id/extMenu2"
+          android:checkable="false"
+          android:icon="@drawable/ic_get_app_black_24dp"
+          android:title="@string/nav_title_app2" />
+
+        <item
+          android:id="@+id/extMenu3"
+          android:checkable="false"
+          android:icon="@drawable/ic_get_app_black_24dp"
+          android:title="@string/nav_title_app3" />
+
+        <item
+          android:id="@+id/extMenu4"
+          android:checkable="false"
+          android:icon="@drawable/ic_get_app_black_24dp"
+          android:title="@string/nav_title_app4" />
+
+        <item
+          android:id="@+id/extMenu5"
+          android:checkable="false"
+          android:icon="@drawable/ic_get_app_black_24dp"
+          android:title="@string/nav_title_app5" />
+
+        <item
+          android:id="@+id/extMenu6"
+          android:checkable="false"
+          android:icon="@drawable/ic_get_app_black_24dp"
+          android:title="@string/nav_title_app6" />
+
+        <item
+          android:id="@+id/extMenu7"
+          android:checkable="false"
+          android:icon="@drawable/ic_get_app_black_24dp"
+          android:title="@string/nav_title_app7" />
+      </menu>
+    </item>
+
+
+  </group>
+
+</menu>

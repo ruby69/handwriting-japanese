@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">@color/bluegrey</color>
+  <color name="colorPrimaryDark">@color/bluegrey_dark</color>
+  <color name="colorAccent">@color/pink</color>
+  <color name="colorAccentLight">@color/pink_light</color>
+  <color name="textColorPrimary">#212121</color>
+  <color name="textColorSecondary">#727272</color>
+
+  <color name="white">#FFFFFFFF</color>
+  <color name="white_trans00">#00FFFFFF</color>
+  <color name="white_trans10">#1AFFFFFF</color>
+  <color name="white_trans20">#33FFFFFF</color>
+  <color name="white_trans50">#80FFFFFF</color>
+  <color name="white_trans80">#CCFFFFFF</color>
+
+  <color name="black">#FF000000</color>
+  <color name="black_trans10">#1A000000</color>
+  <color name="black_trans20">#33000000</color>
+  <color name="black_trans50">#80000000</color>
+  <color name="black_trans80">#CC000000</color>
+
+  <color name="pink">#FFE91E63</color>
+  <color name="pink_dark">#FFC51162</color>
+  <color name="pink_light">#FFF8BBD0</color>
+  <color name="pink_trans20">#33E91E63</color>
+  <color name="pink_trans50">#80E91E63</color>
+
+  <color name="bluegrey">#FF607D8B</color>
+  <color name="bluegrey_light">#FFCFD8DC</color>
+  <color name="bluegrey_dark">#FF263238</color>
+  <color name="bluegrey_trans20">#333F51B5</color>
+
+  <color name="grey">#FF9E9E9E</color>
+  <color name="grey_dark">#FF616161</color>
+  <color name="grey_light">#FFF5F5F5</color>
+</resources>

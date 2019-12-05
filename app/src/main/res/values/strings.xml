@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name" translatable="false">JKanji</string>
+  <string name="admob_app_id" translatable="false">xxxxxxxxxx</string>
+  <string name="admob_interstitial_unit_id" translatable="false">xxxxxxxxxx</string>
+  <string name="admob_banner_unit_id" translatable="false">xxxxxxxxxx</string>
+
+  <string name="nav_title_list">List</string>
+  <string name="nav_title_card">Flashcards</string>
+  <string name="nav_title_games">Games</string>
+  <string name="nav_title_font">Font Size</string>
+  <string name="nav_title_tts_help">TTS(Text-To-Speech)</string>
+
+  <string name="message_selectDictionary">Select the other dictionary please.</string>
+  <string name="message_networkState">Check the network state, please.</string>
+  <string name="message_exit">Please press BACK again to exit.</string>
+  <string name="message_wait">Please wait</string>
+  <string name="message_db_fail">Ooooops!\nInitialization Failed.</string>
+  <string name="message_progress_initialize">initializing</string>
+  <string name="message_progress_loading">loading</string>
+  <string name="message_progress_update">updating</string>
+
+  <string name="message_skip">Skip</string>
+  <string name="message_complete">Complete</string>
+
+  <string name="label_repeat_count">Play Count</string>
+  <string name="label_stroke_speed">Stroke Speed</string>
+  <string name="label_stroke_animation">Stroke Animation</string>
+  <string name="label_confirm">Confirm</string>
+  <string name="label_continue">Continue</string>
+
+  <string name="label_game_move_to_main">Main</string>
+  <string name="label_game_retry">Retry</string>
+  <string name="label_game_history">High Scores</string>
+  <string name="label_game_play">Play</string>
+  <string name="label_game_combo" formatted="false">%s (max)</string>
+  <string name="label_game_combo1" formatted="false">%s combo</string>
+  <string name="label_game_select_category">Selected</string>
+  <string name="label_game_select_count">Selected</string>
+  <string name="label_game_select_hint_delay">Hint Delay</string>
+  <string name="label_game_pause">Pause</string>
+  <string name="label_game_quit">Quit</string>
+  <string name="label_game_resume">Resume</string>
+
+  <string name="label_card_reset">Reset</string>
+  <string name="label_card_shuffle">Shuffle</string>
+  <string name="label_card_comp">Completed</string>
+  <string name="label_card_uncomp">Uncompleted</string>
+  <string name="label_finish">Yes, I quit.</string>
+  <string name="label_game_finish">Yes, I quit the game.</string>
+
+  <string name="label_font_tiny">Tiny</string>
+  <string name="label_font_small">Small</string>
+  <string name="label_font_normal">Normal</string>
+  <string name="label_font_large">Large</string>
+  <string name="label_font_scale">Font Size</string>
+
+  <string name="nav_title_more_apps" translatable="false">More Apps...</string>
+
+  <string name="nav_title_app1">Music Charts for YouTube</string>
+  <string name="nav_title_app2">KTube (KPOP Tube)</string>
+  <string name="nav_title_app3">Japanese Vocab JLPT N1(en)</string>
+  <string name="nav_title_app4">Japanese Vocab JLPT N2(en)</string>
+  <string name="nav_title_app5">Japanese Vocab JLPT N3(en)</string>
+  <string name="nav_title_app6">Japanese Vocab JLPT N4(en)</string>
+  <string name="nav_title_app7">Japanese Vocab JLPT N5(en)</string>
+  <string name="nav_title_app1_package" translatable="false">com.appskimo.app.ytmusic</string>
+  <string name="nav_title_app2_package" translatable="false">com.appskimo.app.ktube</string>
+  <string name="nav_title_app3_package" translatable="false">com.appskimo.app.jvocabn1</string>
+  <string name="nav_title_app4_package" translatable="false">com.appskimo.app.jvocabn2</string>
+  <string name="nav_title_app5_package" translatable="false">com.appskimo.app.jvocabn3</string>
+  <string name="nav_title_app6_package" translatable="false">com.appskimo.app.jvocabn4</string>
+  <string name="nav_title_app7_package" translatable="false">com.appskimo.app.jvocabn5</string>
+
+  <string name="db_name" translatable="false">kanji</string>
+  <integer name="db_version">4</integer>
+  <string name="sql_dictionary_insert" translatable="false">INSERT INTO `Dictionary` (`dictionaryUid`,`name`) values(?, ?)</string>
+  <string name="sql_word_insert" translatable="false">INSERT INTO `Word` (`wordUid`,`word`,`code`,`pronunciation`,`ar`,`da`,`de`,`el`,`en`,`es`,`fi`,`fr`,`hr`,`hu`,`id`,`it`,`ko`,`ms`,`nl`,`pl`,`pt`,`ro`,`ru`,`sv`,`th`,`tr`,`uk`,`uz`,`vi`,`zhCn`,`zhTw`,`path`) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)</string>
+  <string name="sql_dictionaryword_insert" translatable="false">INSERT INTO `DictionaryWord` (`dictionaryWordUid`,`dictionaryUid`,`wordUid`) values(?, ?, ?)</string>
+
+</resources>

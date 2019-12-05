@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+
+  <RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true">
+
+    <RelativeLayout
+      android:id="@+id/resultLayer"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="@dimen/spacing_4x">
+
+      <TextView
+        android:id="@+id/scoreLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/comboLabel"
+        android:text="Score"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textStyle="bold"/>
+
+      <TextView
+        android:id="@+id/timeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/comboLabel"
+        android:layout_below="@+id/scoreLabel"
+        android:layout_marginTop="@dimen/spacing_2x"
+        android:text="Time"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textStyle="bold"/>
+
+      <TextView
+        android:id="@+id/comboLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timeLabel"
+        android:layout_marginTop="@dimen/spacing_2x"
+        android:text="Combo"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textStyle="bold"/>
+
+      <TextView
+        android:id="@+id/scoreView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/scoreLabel"
+        android:layout_marginLeft="@dimen/spacing_4x"
+        android:layout_marginStart="@dimen/spacing_4x"
+        android:layout_toEndOf="@+id/scoreLabel"
+        android:layout_toRightOf="@+id/scoreLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+
+      <TextView
+        android:id="@+id/recordView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/timeLabel"
+        android:layout_marginLeft="@dimen/spacing_4x"
+        android:layout_marginStart="@dimen/spacing_4x"
+        android:layout_toEndOf="@+id/timeLabel"
+        android:layout_toRightOf="@+id/timeLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+
+      <TextView
+        android:id="@+id/comboCountView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/comboLabel"
+        android:layout_marginLeft="@dimen/spacing_4x"
+        android:layout_marginStart="@dimen/spacing_4x"
+        android:layout_toEndOf="@+id/comboLabel"
+        android:layout_toRightOf="@+id/comboLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+    </RelativeLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/resultLayer"
+      android:layout_margin="@dimen/spacing_4x"
+      android:orientation="horizontal">
+
+      <ImageButton
+        android:id="@+id/moveToMain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?android:selectableItemBackground"
+        android:padding="@dimen/spacing_2x"
+        android:src="@drawable/ic_exit_to_app_black_48dp"/>
+
+      <ImageButton
+        android:id="@+id/retry"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?android:selectableItemBackground"
+        android:padding="@dimen/spacing_2x"
+        android:src="@drawable/ic_replay_black_48dp"/>
+
+    </LinearLayout>
+  </RelativeLayout>
+</RelativeLayout>
