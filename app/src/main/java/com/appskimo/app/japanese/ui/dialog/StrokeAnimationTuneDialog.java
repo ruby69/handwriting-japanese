@@ -3,7 +3,6 @@ package com.appskimo.app.japanese.ui.dialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
@@ -36,8 +35,8 @@ public class StrokeAnimationTuneDialog extends CommonDialog {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        var builder = new AlertDialog.Builder(getActivity());
+        var inflater = getActivity().getLayoutInflater();
         builder.setView(init(inflater.inflate(R.layout.dialog_tune_animation, null)));
         builder.setPositiveButton(R.string.label_confirm, confirmListener);
         builder.setTitle(R.string.label_stroke_animation);
@@ -45,8 +44,8 @@ public class StrokeAnimationTuneDialog extends CommonDialog {
     }
 
     private View init(View view) {
-        repeatCount = (AbstractWheel) view.findViewById(R.id.repeatCount);
-        strokeSpeed = (AbstractWheel) view.findViewById(R.id.strokeSpeed);
+        repeatCount = view.findViewById(R.id.repeatCount);
+        strokeSpeed = view.findViewById(R.id.strokeSpeed);
 
         repeatCount.setViewAdapter(new NumericWheelAdapter(getActivity(), 1, 10, "%02d"));
         strokeSpeed.setViewAdapter(new NumericWheelAdapter(getActivity(), 1, 10, "%02d"));

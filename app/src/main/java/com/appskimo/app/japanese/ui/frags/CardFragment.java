@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.appskimo.app.japanese.R;
-import com.appskimo.app.japanese.domain.DictionaryWord;
 import com.appskimo.app.japanese.event.OpenPronounDialog;
 import com.appskimo.app.japanese.event.RefreshCardWord;
 import com.appskimo.app.japanese.event.RefreshListWord;
@@ -39,7 +38,6 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 @EFragment(R.layout.fragment_card)
@@ -91,7 +89,7 @@ public class CardFragment extends Fragment {
                 recyclerViewAdapter.onSkip(position);
                 hideGuide();
             } else if (direction == ItemTouchHelper.END) {
-                DictionaryWord word = recyclerViewAdapter.onComplete(position);
+                var word = recyclerViewAdapter.onComplete(position);
                 wordService.setComplete(word);
                 EventBus.getDefault().post(new RefreshListWord(true));
                 hideGuide();
@@ -123,7 +121,7 @@ public class CardFragment extends Fragment {
 
     private void initWords() {
         showComplete = Boolean.FALSE;
-        List<DictionaryWord> list = wordService.getSelectedDictionaryWords(showComplete);
+        var list = wordService.getSelectedDictionaryWords(showComplete);
         if (list.size() < 1) {
             showComplete = !showComplete;
             list = wordService.getSelectedDictionaryWords(showComplete);
@@ -188,7 +186,7 @@ public class CardFragment extends Fragment {
 
     @Click(R.id.shuffle)
     void onClickShuffle() {
-        List<DictionaryWord> words = wordService.getSelectedDictionaryWords(showComplete);
+        var words = wordService.getSelectedDictionaryWords(showComplete);
         Collections.shuffle(words, new Random(System.nanoTime()));
         recyclerViewAdapter.reset(words);
         recyclerView.scrollToPosition(0);

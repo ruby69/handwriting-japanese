@@ -50,12 +50,4 @@
   <string name="label_font_large">크게</string>
   <string name="label_font_scale">글자 크기</string>
 
-  <string name="nav_title_app1">유튜브 음악차트</string>
-  <string name="nav_title_app2">한눈에 보는 KPOP</string>
-  <string name="nav_title_app3">일본어 단어 JLPT N1</string>
-  <string name="nav_title_app4">일본어 단어 JLPT N2</string>
-  <string name="nav_title_app5">일본어 단어 JLPT N3</string>
-  <string name="nav_title_app6">일본어 단어 JLPT N4</string>
-  <string name="nav_title_app7">일본어 단어 JLPT N5</string>
-
 </resources>

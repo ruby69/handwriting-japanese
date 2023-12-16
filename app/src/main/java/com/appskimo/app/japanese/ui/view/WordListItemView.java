@@ -10,7 +10,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.appskimo.app.japanese.R;
-import com.appskimo.app.japanese.domain.Dictionary;
 import com.appskimo.app.japanese.domain.DictionaryWord;
 import com.appskimo.app.japanese.domain.SupportLanguage;
 import com.appskimo.app.japanese.event.RefreshCardWord;
@@ -61,11 +60,11 @@ public class WordListItemView extends RelativeLayout {
         this.dictionaryWord = dictionaryWord;
         rearrangePosition(position);
 
-        SupportLanguage supportLanguage = SupportLanguage.valueOf(prefs.userLanguage().getOr("en"));
+        var supportLanguage = SupportLanguage.valueOf(prefs.userLanguage().getOr("en"));
         if (dictionaryWord != null && dictionaryWord.getWord() != null) {
             characterView.setText(dictionaryWord.getWord().getWord());
             int codeValue = Integer.parseInt(dictionaryWord.getWord().getCode(), 16);
-            if(codeValue > 12353 && codeValue < 12510) {
+            if (codeValue > 12353 && codeValue < 12510) {
                 meaningView.setText(null);
                 meaningView.setVisibility(View.GONE);
             } else {
@@ -86,7 +85,7 @@ public class WordListItemView extends RelativeLayout {
 
     @UiThread
     void adjustCharacterApperance () {
-        Dictionary dictionary = wordService.getSelectedDictionary();
+        var dictionary = wordService.getSelectedDictionary();
         if (!(dictionary.getDictionaryUid() == 10001 || dictionary.getDictionaryUid() == 10002 || dictionary.getDictionaryUid() == 10003)) {
             if (wordService.pinned(dictionaryWord)) {
                 characterView.setTextSize(TypedValue.COMPLEX_UNIT_PX, maxTextSize);
@@ -115,7 +114,7 @@ public class WordListItemView extends RelativeLayout {
     }
 
     private void rearrangePosition(int position) {
-        Dictionary dictionary = wordService.getSelectedDictionary();
+        var dictionary = wordService.getSelectedDictionary();
         if (dictionary.getDictionaryUid() == 10003) {
             position = position > 67 ? position - 1 : position;
             position = position > 66 ? position - 1 : position;

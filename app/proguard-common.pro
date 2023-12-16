@@ -7,7 +7,6 @@
 # Add when compile with JDK 1.7
 -keepattributes EnclosingMethod
 
--keep class android.support.v7.widget.SearchView { *; }
 -keepclassmembers class com.appskimo.app.japanese.domain.** { *; }
 
 -dontwarn com.caverock.androidsvg.**

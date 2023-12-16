@@ -1,6 +1,7 @@
 package com.appskimo.app.japanese;
 
 import android.content.DialogInterface;
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -18,7 +19,7 @@ import com.appskimo.app.japanese.ui.frags.GameMenuFragment;
 import com.appskimo.app.japanese.ui.frags.GameMenuFragment_;
 import com.appskimo.app.japanese.ui.frags.GamePlayFragment;
 import com.appskimo.app.japanese.ui.frags.GamePlayFragment_;
-import com.google.android.gms.ads.AdView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
@@ -35,8 +36,6 @@ import java.util.List;
 @EActivity(R.layout.activity_game)
 public class GameActivity extends AppCompatActivity {
     @ViewById(R.id.viewPager) ViewPager viewPager;
-    @ViewById(R.id.adBanner) AdView adBanner;
-
     @Pref PrefsService_ prefs;
 
     @Bean WordService vocabService;
@@ -59,6 +58,14 @@ public class GameActivity extends AppCompatActivity {
         dialog.dismiss();
     };
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(!BuildConfig.DEBUG) {
+            FirebaseAnalytics.getInstance(this);
+        }
+    }
+
     @AfterInject
     void afterInject() {
         miscService.applyFontScale(this);
@@ -68,7 +75,6 @@ public class GameActivity extends AppCompatActivity {
     void afterViews() {
         pagerAdapter = new PagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
-        miscService.loadBannerAdView(adBanner);
     }
 
     private class PagerAdapter extends FragmentPagerAdapter {
@@ -98,7 +104,7 @@ public class GameActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Fragment fragment = pagerAdapter.getItem(viewPager.getCurrentItem());
+        var fragment = pagerAdapter.getItem(viewPager.getCurrentItem());
         if (fragment instanceof GamePlayFragment) {
             if (gameService.isReady()) {
                 gameService.cancelSession();
@@ -106,13 +112,13 @@ public class GameActivity extends AppCompatActivity {
 
             } else if (gameService.isPlaying()) {
                 gamePlayFragment.pauseSession();
-                miscService.showAdDialog(this, R.string.label_game_pause, R.string.label_game_quit, quitListener, R.string.label_game_resume, resumeListener);
+                miscService.showDialog(this, R.string.label_game_pause, R.string.label_game_quit, quitListener, R.string.label_game_resume, resumeListener);
             }
         } else if (fragment instanceof GameHistoryFragment) {
             viewPager.setCurrentItem(0, false);
 
         } else {
-            miscService.showAdDialog(this, R.string.label_game_finish, (dialog, i) -> finish());
+            miscService.showDialog(this, R.string.label_game_finish, (dialog, i) -> finish());
         }
     }
 }

@@ -2,7 +2,6 @@ package com.appskimo.app.japanese.ui.dialog;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
@@ -17,7 +16,6 @@ import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EFragment;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @EFragment
 public class LanguageDialog extends CommonDialog {
@@ -28,24 +26,24 @@ public class LanguageDialog extends CommonDialog {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        var builder = new AlertDialog.Builder(getActivity());
+        var inflater = getActivity().getLayoutInflater();
         builder.setView(init(inflater.inflate(R.layout.dialog_simple_selector, null)));
         return builder.create();
     }
 
     private View init(View view) {
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        recyclerView = view.findViewById(R.id.recyclerView);
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        AlertDialog dialog = (AlertDialog) getDialog();
+        var dialog = (AlertDialog) getDialog();
         if (dialog != null) {
-            List<SupportLanguage> list = new ArrayList<>();
-            for (SupportLanguage sl : SupportLanguage.values()) {
+            var list = new ArrayList<SupportLanguage>();
+            for (var sl : SupportLanguage.values()) {
                 if (sl != SupportLanguage.id) {
                     list.add(sl);
                 }

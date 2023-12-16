@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name" translatable="false">JKanji</string>
-  <string name="admob_app_id" translatable="false">xxxxxxxxxx</string>
-  <string name="admob_interstitial_unit_id" translatable="false">xxxxxxxxxx</string>
-  <string name="admob_banner_unit_id" translatable="false">xxxxxxxxxx</string>
 
   <string name="nav_title_list">List</string>
   <string name="nav_title_card">Flashcards</string>
@@ -54,23 +51,6 @@
   <string name="label_font_normal">Normal</string>
   <string name="label_font_large">Large</string>
   <string name="label_font_scale">Font Size</string>
-
-  <string name="nav_title_more_apps" translatable="false">More Apps...</string>
-
-  <string name="nav_title_app1">Music Charts for YouTube</string>
-  <string name="nav_title_app2">KTube (KPOP Tube)</string>
-  <string name="nav_title_app3">Japanese Vocab JLPT N1(en)</string>
-  <string name="nav_title_app4">Japanese Vocab JLPT N2(en)</string>
-  <string name="nav_title_app5">Japanese Vocab JLPT N3(en)</string>
-  <string name="nav_title_app6">Japanese Vocab JLPT N4(en)</string>
-  <string name="nav_title_app7">Japanese Vocab JLPT N5(en)</string>
-  <string name="nav_title_app1_package" translatable="false">com.appskimo.app.ytmusic</string>
-  <string name="nav_title_app2_package" translatable="false">com.appskimo.app.ktube</string>
-  <string name="nav_title_app3_package" translatable="false">com.appskimo.app.jvocabn1</string>
-  <string name="nav_title_app4_package" translatable="false">com.appskimo.app.jvocabn2</string>
-  <string name="nav_title_app5_package" translatable="false">com.appskimo.app.jvocabn3</string>
-  <string name="nav_title_app6_package" translatable="false">com.appskimo.app.jvocabn4</string>
-  <string name="nav_title_app7_package" translatable="false">com.appskimo.app.jvocabn5</string>
 
   <string name="db_name" translatable="false">kanji</string>
   <integer name="db_version">4</integer>

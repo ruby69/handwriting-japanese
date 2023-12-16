@@ -19,37 +19,28 @@ public abstract class CommonRecyclerViewAdapter<M, VH extends RecyclerView.ViewH
     }
 
     public void clear() {
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                items.clear();
-                notifyDataSetChanged();
-            }
+        handler.post(() -> {
+            items.clear();
+            notifyDataSetChanged();
         });
     }
 
     public void add(final List<M> items) {
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                if (items != null) {
-                    CommonRecyclerViewAdapter.this.items.addAll(items);
-                    notifyDataSetChanged();
-                }
+        handler.post(() -> {
+            if (items != null) {
+                CommonRecyclerViewAdapter.this.items.addAll(items);
+                notifyDataSetChanged();
             }
         });
     }
 
     public void reset(final List<M> items) {
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                CommonRecyclerViewAdapter.this.items.clear();
-                if (items != null) {
-                    CommonRecyclerViewAdapter.this.items.addAll(items);
-                }
-                notifyDataSetChanged();
+        handler.post(() -> {
+            CommonRecyclerViewAdapter.this.items.clear();
+            if (items != null) {
+                CommonRecyclerViewAdapter.this.items.addAll(items);
             }
+            notifyDataSetChanged();
         });
     }
 }

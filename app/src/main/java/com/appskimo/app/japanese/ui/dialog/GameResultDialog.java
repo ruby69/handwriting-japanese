@@ -2,7 +2,6 @@ package com.appskimo.app.japanese.ui.dialog;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
@@ -32,34 +31,28 @@ public class GameResultDialog extends CommonDialog {
     private String recordValue;
     private int comboCountValue;
 
-    private View.OnClickListener mainListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            EventBus.getDefault().post(new GameNextAction(GameNextAction.Kind.MAIN));
-            dismiss();
-        }
+    private View.OnClickListener mainListener = v -> {
+        EventBus.getDefault().post(new GameNextAction(GameNextAction.Kind.MAIN));
+        dismiss();
     };
 
-    private View.OnClickListener retryListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            EventBus.getDefault().post(new GameNextAction(GameNextAction.Kind.PLAY));
-            dismiss();
-        }
+    private View.OnClickListener retryListener = v -> {
+        EventBus.getDefault().post(new GameNextAction(GameNextAction.Kind.PLAY));
+        dismiss();
     };
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        var builder = new AlertDialog.Builder(getActivity());
+        var inflater = getActivity().getLayoutInflater();
         builder.setView(init(inflater.inflate(R.layout.dialog_game_result, null)));
         return builder.create();
     }
 
     private View init(View view) {
-        scoreView = (TextView) view.findViewById(R.id.scoreView);
-        recordView = (TextView) view.findViewById(R.id.recordView);
-        comboCountView = (TextView) view.findViewById(R.id.comboCountView);
+        scoreView = view.findViewById(R.id.scoreView);
+        recordView = view.findViewById(R.id.recordView);
+        comboCountView = view.findViewById(R.id.comboCountView);
 
         view.findViewById(R.id.moveToMain).setOnClickListener(mainListener);
         view.findViewById(R.id.retry).setOnClickListener(retryListener);
@@ -70,7 +63,7 @@ public class GameResultDialog extends CommonDialog {
     @Override
     public void onStart() {
         super.onStart();
-        AlertDialog dialog = (AlertDialog) getDialog();
+        var dialog = (AlertDialog) getDialog();
         if (dialog != null) {
             scoreView.setText(scoreFormat.format(score));
             recordView.setText(recordValue);
@@ -79,8 +72,8 @@ public class GameResultDialog extends CommonDialog {
     }
 
     public GameResultDialog setRecord(long score, long elapsedMillis, int count) {
-        String sec = String.valueOf(elapsedMillis / 1000);
-        String msec = String.format("%03d sec", elapsedMillis % 1000);
+        var sec = String.valueOf(elapsedMillis / 1000);
+        var msec = String.format("%03d sec", elapsedMillis % 1000);
 
         this.score = score;
         this.recordValue = sec.concat(".").concat(msec);

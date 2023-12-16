@@ -1,8 +1,8 @@
 package com.appskimo.app.japanese;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.media.AudioManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -20,7 +20,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
-import androidx.core.view.MenuItemCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(!BuildConfig.DEBUG) {
-             FirebaseAnalytics.getInstance(this);
+            FirebaseAnalytics.getInstance(this);
         }
         getLifecycle().addObserver(new EventBusObserver.AtCreateDestroy(this));
         pagerAdapter = new PagerAdapter(getSupportFragmentManager());
@@ -123,32 +122,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         initNavigationDrawer();
         mainViewPager.setAdapter(pagerAdapter);
         initBottomSheet();
-        miscService.initializeMobileAds();
     }
 
     private void initNavigationDrawer() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
+        var toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        View headerLayout = navigationView.getHeaderView(0);
-        TextView language = (TextView) headerLayout.findViewById(R.id.language);
+        var headerLayout = navigationView.getHeaderView(0);
+        TextView language = headerLayout.findViewById(R.id.language);
         language.setText(SupportLanguage.valueOf(prefs.userLanguage().get()).getDisplayName());
-        language.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                languageDialog.show(getSupportFragmentManager(), LanguageDialog.TAG);
-            }
-        });
+        language.setOnClickListener(v -> languageDialog.show(getSupportFragmentManager(), LanguageDialog.TAG));
     }
 
     private void initBottomSheet() {
         bottomSheetBehavior = BottomSheetBehavior.from(writingPad);
-        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+        bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 if (newState == BottomSheetBehavior.STATE_DRAGGING) {
@@ -178,15 +171,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void initSpinner(Menu menu) {
         dictionaries = wordService.getDictionaries();
-        String [] dictionaryTitles = new String[dictionaries.size()];
+        var dictionaryTitles = new String[dictionaries.size()];
         for(int i = 0; i<dictionaries.size(); i++) {
             dictionaryTitles[i] = dictionaries.get(i).getName();
         }
 
-        ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, dictionaryTitles);
+        var adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, dictionaryTitles);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner = (Spinner) MenuItemCompat.getActionView(menu.findItem(R.id.spinner));
+        spinner = (Spinner) menu.findItem(R.id.spinner).getActionView();
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(spinnerSelectedListener);
         spinner.setSelection(1);
@@ -198,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
         public void onItemSelected(AdapterView<?> adapter, View v, int position, long id) {
             if (count++ > 2) {
-                miscService.showAdDialog(MainActivity.this, R.string.label_continue, (dialog, i) -> {});
+                miscService.showDialog(MainActivity.this, R.string.label_continue, (dialog, i) -> {});
             }
 
             wordService.selectDictionary(position);
@@ -212,9 +205,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     };
 
     private void initSearchView(Menu menu) {
-        MenuItem searchItem = menu.findItem(R.id.search);
-        final MenuItem spinnerItem = menu.findItem(R.id.spinner);
-        MenuItemCompat.setOnActionExpandListener(searchItem, new MenuItemCompat.OnActionExpandListener() {
+        var searchItem = menu.findItem(R.id.search);
+        var spinnerItem = menu.findItem(R.id.spinner);
+        searchItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
             @Override
             public boolean onMenuItemActionExpand(MenuItem item) {
                 spinnerItem.setVisible(false);
@@ -237,7 +230,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        var searchView = (SearchView) searchItem.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -275,29 +268,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawerLayout.closeDrawer(GravityCompat.START);
             setVisibleWritingPad(false);
         } else if (id == R.id.menuGames) {
-            miscService.showAdDialog(this, R.string.label_continue, (dialog, i) -> GameActivity_.intent(this).start());
-
+            GameActivity_.intent(this).flags(PendingIntent.FLAG_IMMUTABLE).start();
         } else if (id == R.id.ttsLink) {
             onEvent(new Link("https://www.greenbot.com/article/2105862/how-to-get-started-with-google-text-to-speech.html"));
-
         } else if (id == R.id.fontScale) {
             fontScaleDialog = new AlertDialog.Builder(this).setTitle(R.string.label_font_scale).setView(FontScaleView_.build(this)).create();
             fontScaleDialog.show();
-
-//        } else if (id == R.id.extMenu1) {
-//            linkPlayStore(getResources().getString(R.string.nav_title_app1_package));
-        } else if (id == R.id.extMenu2) {
-            linkPlayStore(getResources().getString(R.string.nav_title_app2_package));
-        } else if (id == R.id.extMenu3) {
-            linkPlayStore(getResources().getString(R.string.nav_title_app3_package));
-        } else if (id == R.id.extMenu4) {
-            linkPlayStore(getResources().getString(R.string.nav_title_app4_package));
-        } else if (id == R.id.extMenu5) {
-            linkPlayStore(getResources().getString(R.string.nav_title_app5_package));
-        } else if (id == R.id.extMenu6) {
-            linkPlayStore(getResources().getString(R.string.nav_title_app6_package));
-        } else if (id == R.id.extMenu7) {
-            linkPlayStore(getResources().getString(R.string.nav_title_app7_package));
         }
         return true;
     }
@@ -313,14 +289,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         finish();
     }
 
-    private void linkPlayStore(String packageName) {
-        try {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packageName)));
-        } catch (Exception e) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
-        }
-    }
-
     @Subscribe
     public void onEvent(Link event) {
         linkDialog.setUrl(event.getUrl()).show(getSupportFragmentManager(), LinkDialog.TAG);
@@ -328,11 +296,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Subscribe
     public void onEvent(SelectLanguage event) {
-        SupportLanguage supportLanguage = event.getSupportLanguage();
-        String current = prefs.userLanguage().get();
+        var supportLanguage = event.getSupportLanguage();
+        var current = prefs.userLanguage().get();
         if (SupportLanguage.valueOf(current) != supportLanguage) {
             prefs.userLanguage().put(supportLanguage.getCode());
-            Intent intent = new Intent(getApplicationContext(), LauncherActivity_.class);
+            var intent = new Intent(getApplicationContext(), LauncherActivity_.class);
             intent.putExtra("isRestart", Boolean.TRUE);
             startActivity(intent);
             finish();
@@ -377,7 +345,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return;
         }
 
-        miscService.showAdDialog(this, R.string.label_finish, (dialog, i) -> finish());
+        miscService.showDialog(this, R.string.label_finish, (dialog, i) -> finish());
+    }
+
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.clear();
     }
 
 }

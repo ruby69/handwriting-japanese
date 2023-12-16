@@ -9,4 +9,6 @@
 -keepattributes EnclosingMethod
 -keepattributes InnerClasses
 
+-keep class com.google.android.gms.internal.consent_sdk.** { *; }
+
 # End: Proguard rules for Firebase

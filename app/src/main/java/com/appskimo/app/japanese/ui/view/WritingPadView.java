@@ -1,9 +1,7 @@
 package com.appskimo.app.japanese.ui.view;
 
 import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.graphics.Matrix;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
@@ -19,7 +17,6 @@ import android.widget.TextView;
 import androidx.fragment.app.FragmentManager;
 
 import com.appskimo.app.japanese.R;
-import com.appskimo.app.japanese.domain.Dictionary;
 import com.appskimo.app.japanese.domain.DictionaryWord;
 import com.appskimo.app.japanese.domain.SupportLanguage;
 import com.appskimo.app.japanese.domain.Word;
@@ -141,7 +138,7 @@ public class WritingPadView extends RelativeLayout {
             strokeAnimator = null;
         }
 
-        List<String> pathArrayList = getPathList();
+        var pathArrayList = getPathList();
         if (pathArrayList != null) {
             int duration = prefs.strokeSpeed().getOr(3) * STROKE_BASE_DURATION * pathArrayList.size();
             strokeAnimator = strokeView.getPathAnimator().duration(duration).build();
@@ -159,7 +156,7 @@ public class WritingPadView extends RelativeLayout {
 
     @Click(R.id.hear)
     void onClickHear() {
-        Word word = dictionaryWord.getWord();
+        var word = dictionaryWord.getWord();
         if(word.getWordUid() < 141) {
             miscService.speech(word.getWord());
         } else {
@@ -204,8 +201,8 @@ public class WritingPadView extends RelativeLayout {
             }
 
             dictionaryWord = words.get(currentWordPosition);
-            Word word = dictionaryWord.getWord();
-            String pronoun = word.getPronunciation();
+            var word = dictionaryWord.getWord();
+            var pronoun = word.getPronunciation();
             if(word.getWordUid() < 141) {
                 onlyPronounView.setVisibility(View.VISIBLE);
                 pronounMeaningView.setVisibility(View.GONE);
@@ -220,42 +217,12 @@ public class WritingPadView extends RelativeLayout {
             }
 
             pinning();
-
-            checkAd();
         }
-    }
-
-    private int touchCount = 0;
-    private int checkCount = 4;
-    private void checkAd() {
-        if (countForAd()) {
-            miscService.showAdDialog(getActivity(), false, R.string.label_continue, (dialog, i) -> {});
-        }
-    }
-
-    private boolean countForAd() {
-        boolean b = touchCount++ % checkCount == 0 && touchCount > 1;
-        if (b) {
-            touchCount = 0;
-            checkCount++;
-        }
-        return b;
-    }
-
-    private Activity getActivity() {
-        Context context = getContext();
-        while (context instanceof ContextWrapper) {
-            if (context instanceof Activity) {
-                return (Activity)context;
-            }
-            context = ((ContextWrapper)context).getBaseContext();
-        }
-        return null;
     }
 
     private void populatePronoun(String pronouns) {
-        StringBuilder sb = new StringBuilder();
-        String[] arr = pronouns.split(", ");
+        var sb = new StringBuilder();
+        var arr = pronouns.split(", ");
         int count = arr.length > 3 ? 3 : arr.length;
         for(int i = 0; i<count; i++) {
             sb.append(arr[i].split("\\|")[0]).append((i < count - 1) ? ", " : "");
@@ -265,11 +232,7 @@ public class WritingPadView extends RelativeLayout {
 
     @UiThread
     void pinning() {
-        if (wordService.pinned(dictionaryWord)) {
-            check.setColorFilter(pink, PorterDuff.Mode.SRC_ATOP);
-        } else {
-            check.setColorFilter(greyLight, PorterDuff.Mode.SRC_ATOP);
-        }
+        check.setColorFilter(wordService.pinned(dictionaryWord) ? pink : greyLight, PorterDuff.Mode.SRC_ATOP);
     }
 
     @Click({R.id.checkLayer, R.id.check})
@@ -367,7 +330,7 @@ public class WritingPadView extends RelativeLayout {
         guideView.clear();
         strokeView.clear();
 
-        List<String> pathStrings = getPathList();
+        var pathStrings = getPathList();
         if (pathStrings != null) {
             computeBounds(pathStrings, guideScaleMatrix);   // must call at first.
             drawGuideStroke(pathStrings);                   // must call at second.
@@ -395,9 +358,9 @@ public class WritingPadView extends RelativeLayout {
     }
 
     private void computeBounds(List<String> pathStrings, Matrix scaleMatrix) {
-        Path tempPath = new Path();
-        for (String pathString : pathStrings) {
-            Path path = SVGParser.parsePath(pathString);
+        var tempPath = new Path();
+        for (var pathString : pathStrings) {
+            var path = SVGParser.parsePath(pathString);
             path.transform(scaleMatrix);
             tempPath.addPath(path);
         }
@@ -407,9 +370,9 @@ public class WritingPadView extends RelativeLayout {
     private List<Path> getTransformedPaths(List<String> pathStrings, Matrix scaleMatrix, boolean center) {
         float translateX = (guideView.getWidth() / 2F) - rectF.centerX();
         float translateY = (guideView.getHeight() / 2F) - rectF.centerY();
-        List<Path> list = new ArrayList<>();
+        var list = new ArrayList<Path>();
         for (String pathString : pathStrings) {
-            Path path = SVGParser.parsePath(pathString);
+            var path = SVGParser.parsePath(pathString);
             path.transform(scaleMatrix);
             if (center) {
                 translateMatrix.setTranslate(translateX, translateY);
@@ -422,7 +385,7 @@ public class WritingPadView extends RelativeLayout {
     }
 
     public void populateWords() {
-        Dictionary dictionary = wordService.getSelectedDictionary();
+        var dictionary = wordService.getSelectedDictionary();
         if (dictionary != null && dictionary.getDictionaryWords() != null) {
             words = new ArrayList<>(dictionary.getDictionaryWords());
         }

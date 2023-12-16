@@ -15,10 +15,7 @@ import com.appskimo.app.japanese.support.SQLiteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.stmt.PreparedUpdate;
-import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.SelectArg;
-import com.j256.ormlite.stmt.UpdateBuilder;
-import com.j256.ormlite.stmt.Where;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.Background;
@@ -61,7 +58,7 @@ public class WordService {
 
     private void initQueries() {
         try {
-            UpdateBuilder<DictionaryWord, Integer> builder = dictionaryWordDao.updateBuilder();
+            var builder = dictionaryWordDao.updateBuilder();
             builder.updateColumnValue(DictionaryWord.FIELD_complete, completeArg);
             builder.setWhere(builder.where().eq(DictionaryWord.FIELD_dictionaryUid, dictionaryIdArg));
             wordResetQuery = builder.prepare();
@@ -79,11 +76,11 @@ public class WordService {
 
     private List<Dictionary> loadDictionaries() {
         try {
-            QueryBuilder<Dictionary, Integer> builder = dictionaryDao.queryBuilder().orderBy(Dictionary.FIELD_dictionaryUid, true);
+            var builder = dictionaryDao.queryBuilder().orderBy(Dictionary.FIELD_dictionaryUid, true);
             builder.setWhere(builder.where().ne(Dictionary.FIELD_dictionaryUid, Dictionary.UID_FINDLIST));
             dictionaries = builder.query();
 
-            for (Dictionary dictionary : dictionaries) {
+            for (var dictionary : dictionaries) {
                 if (dictionary.getDictionaryUid() == Dictionary.UID_CHECKLIST) {
                     checklistDictionary = dictionary;
                     break;
@@ -117,7 +114,7 @@ public class WordService {
 
     public void pin(DictionaryWord dictionaryWord) {
         if (dictionaryWord != null) {
-            DictionaryWord find = findChecklistWord(dictionaryWord);
+            var find = findChecklistWord(dictionaryWord);
             if (find != null) {
                 dictionaryWordDao.delete(find);
             } else {
@@ -125,7 +122,7 @@ public class WordService {
                     if (dictionaryWord.getDictionary().getDictionaryUid() == Dictionary.UID_CHECKLIST) {
                         dictionaryWordDao.createIfNotExists(dictionaryWord);
                     } else {
-                        DictionaryWord dWord = new DictionaryWord();
+                        var dWord = new DictionaryWord();
                         dWord.setDictionary(checklistDictionary);
                         dWord.setWord(dictionaryWord.getWord());
                         dictionaryWordDao.createIfNotExists(dWord);
@@ -137,8 +134,8 @@ public class WordService {
 
     private DictionaryWord findChecklistWord(DictionaryWord dictionaryWord) {
         try {
-            QueryBuilder<DictionaryWord, Integer> selectQuery = dictionaryWordDao.queryBuilder();
-            Where<DictionaryWord, Integer> where = selectQuery.where();
+            var selectQuery = dictionaryWordDao.queryBuilder();
+            var where = selectQuery.where();
             where.and(where.eq(DictionaryWord.FIELD_dictionaryUid, Dictionary.UID_CHECKLIST), where.eq(DictionaryWord.FIELD_wordUid, dictionaryWord.getWord().getWordUid()));
             selectQuery.setWhere(where);
             return selectQuery.queryForFirst();
@@ -155,7 +152,7 @@ public class WordService {
     }
 
     public List<DictionaryWord> getSelectedDictionaryWords(boolean complete) {
-        List<DictionaryWord> list = new ArrayList<>();
+        var list = new ArrayList<DictionaryWord>();
         if (selectedDictionary != null) {
             for (DictionaryWord dictionaryWord : selectedDictionary.getDictionaryWords()) {
                 if (dictionaryWord.isComplete() == complete) {
@@ -189,7 +186,7 @@ public class WordService {
     }
 
     public void find(String text) {
-        List<DictionaryWord> result = new ArrayList<>();
+        var result = new ArrayList<DictionaryWord>();
         for (Word word : findBy(text)) {
             DictionaryWord dw = new DictionaryWord();
             dw.setDictionary(findDictionary);
@@ -204,9 +201,9 @@ public class WordService {
         String likeText = "%".concat(text).concat("%");
         String pronounText = "[".concat(text).concat("]");
         try {
-            SupportLanguage supportLanguage = SupportLanguage.valueOf(prefs.userLanguage().getOr("en"));
-            QueryBuilder<Word, Integer> query = wordDao.queryBuilder().orderBy(Word.FIELD_word, true);
-            Where<Word, Integer> where = wordDao.queryBuilder().where();
+            var supportLanguage = SupportLanguage.valueOf(prefs.userLanguage().getOr("en"));
+            var query = wordDao.queryBuilder().orderBy(Word.FIELD_word, true);
+            var where = wordDao.queryBuilder().where();
 
             if (text.length() == 1) {
                 if (supportLanguage == SupportLanguage.zh || supportLanguage == SupportLanguage.ja || supportLanguage == SupportLanguage.ko) {
@@ -238,8 +235,8 @@ public class WordService {
     private String getSearchField() {
         String field = "";
 
-        SupportLanguage supportLanguage = SupportLanguage.valueOf(prefs.userLanguage().getOr("en"));
-        String country = prefs.userCountry().getOr("US");
+        var supportLanguage = SupportLanguage.valueOf(prefs.userLanguage().getOr("en"));
+        var country = prefs.userCountry().getOr("US");
         if (supportLanguage == SupportLanguage.zh) {
             if ("TW".equals(country)) {
                 field = Word.FIELD_meaningZhTw;

@@ -92,8 +92,8 @@ public class Word implements Serializable {
     private List<OrderPoint> orderList;
 
     public String getMeaningForSimple(SupportLanguage supportLanguage, String country) {
-        String meaning = getMeaning(supportLanguage, country).replaceAll("10,000", "10000");
-        List<String> list = Arrays.asList(meaning.split(","));
+        var meaning = getMeaning(supportLanguage, country).replaceAll("10,000", "10000");
+        var list = Arrays.asList(meaning.split(","));
         if (list.isEmpty()) {
             return "";
         } else {
@@ -106,8 +106,8 @@ public class Word implements Serializable {
     }
 
     public String getMeaningForGame(SupportLanguage supportLanguage, String country) {
-        String meaning = getMeaning(supportLanguage, country).replaceAll("10,000", "10000");
-        List<String> list = Arrays.asList(meaning.split(","));
+        var meaning = getMeaning(supportLanguage, country).replaceAll("10,000", "10000");
+        var list = Arrays.asList(meaning.split(","));
         return StringUtils.join(list.size() > 5 ? list.subList(0, 5) : list, ", ");
     }
 
@@ -180,8 +180,8 @@ public class Word implements Serializable {
         if (pathList == null) {
             pathList = new ArrayList<>();
 
-            String[] temp = path.split(";");
-            for (String pa : temp[0].split("[|]")) {
+            var temp = path.split(";");
+            for (var pa : temp[0].split("[|]")) {
                 pathList.add(pa);
             }
         }
@@ -192,8 +192,8 @@ public class Word implements Serializable {
         if (orderList == null) {
             orderList = new ArrayList<>();
 
-            String[] temp = path.split(";");
-            String[] split = temp[1].split("[|]");
+            var temp = path.split(";");
+            var split = temp[1].split("[|]");
             for (int i = 0; i<split.length; i++) {
                 orderList.add(new OrderPoint(i + 1, split[i]));
             }
@@ -209,7 +209,7 @@ public class Word implements Serializable {
 
         public OrderPoint(int order, String str) {
             this.order = order;
-            String[] temp = str.split(",");
+            var temp = str.split(",");
             x = Float.valueOf(temp[0]);
             y = Float.valueOf(temp[1]);
         }

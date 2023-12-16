@@ -16,7 +16,6 @@ import com.appskimo.app.japanese.event.GameNextAction;
 import com.appskimo.app.japanese.event.SelectGameDictionary;
 import com.appskimo.app.japanese.service.GameService;
 import com.appskimo.app.japanese.support.EventBusObserver;
-import com.appskimo.app.japanese.ui.view.DictionaryItemView;
 import com.appskimo.app.japanese.ui.view.DictionaryItemView_;
 
 import org.androidannotations.annotations.AfterInject;
@@ -75,7 +74,7 @@ public class GameMenuFragment extends Fragment {
             if(i == 1 || i == 3 || i == 8) {
                 categoriesLayer.addView(DictionaryItemView_.build(getActivity()));
             }
-            DictionaryItemView dictionaryItemView = DictionaryItemView_.build(getActivity());
+            var dictionaryItemView = DictionaryItemView_.build(getActivity());
             dictionaryItemView.setTitle(i, titles[i]);
             categoriesLayer.addView(dictionaryItemView);
         }
@@ -95,7 +94,7 @@ public class GameMenuFragment extends Fragment {
     @Subscribe
     public void onEvent(SelectGameDictionary event) {
         int position = event.getPosition();
-        Dictionary dictionary = dictionaries.get(position);
+        var dictionary = dictionaries.get(position);
         categoryLabel.setText(selectDictionaryLabel + " : " + dictionary.getName());
         getActivity().getIntent().putExtra("selectDictionaryPosition", position);
     }
@@ -103,7 +102,7 @@ public class GameMenuFragment extends Fragment {
     @Click(R.id.play)
     void onClickPlay() {
         int position = getActivity().getIntent().getIntExtra("selectDictionaryPosition", 1);
-        Dictionary dictionary = dictionaries.get(position);
+        var dictionary = dictionaries.get(position);
         if (dictionary.getDictionaryWords().size() > 0) {
             if(gameService.hasStopped()) {
                 viewPager.setCurrentItem(2, Boolean.TRUE);

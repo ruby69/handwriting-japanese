@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.appskimo.app.japanese.R;
 import com.appskimo.app.japanese.domain.DictionaryWord;
 import com.appskimo.app.japanese.domain.SupportLanguage;
-import com.appskimo.app.japanese.domain.Word;
 import com.appskimo.app.japanese.event.OpenPronounDialog;
 import com.appskimo.app.japanese.event.RefreshCardWord;
 import com.appskimo.app.japanese.event.RefreshListWord;
@@ -30,8 +29,6 @@ import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.ColorRes;
 import org.androidannotations.annotations.sharedpreferences.Pref;
 import org.greenrobot.eventbus.EventBus;
-
-import java.util.Map;
 
 @EViewGroup(R.layout.view_word_card_item)
 public class WordCardItemView extends RelativeLayout {
@@ -86,12 +83,12 @@ public class WordCardItemView extends RelativeLayout {
 
     public void setWord(DictionaryWord dictionaryWord) {
         this.dictionaryWord = dictionaryWord;
-        SupportLanguage supportLanguage = SupportLanguage.valueOf(prefs.userLanguage().getOr("en"));
+        var supportLanguage = SupportLanguage.valueOf(prefs.userLanguage().getOr("en"));
 
-        Word word = dictionaryWord.getWord();
+        var word = dictionaryWord.getWord();
         characterView.setText(word.getWord());
 
-        String pronoun = word.getPronunciation();
+        var pronoun = word.getPronunciation();
         if(word.getWordUid() < 141) {
             onlyPronounView.setVisibility(View.VISIBLE);
             pronounMeaningView.setVisibility(View.GONE);
@@ -117,8 +114,8 @@ public class WordCardItemView extends RelativeLayout {
 
         dictionaryLayer.removeAllViews();
         if(word.getWordUid() > 140) {
-            for(Map<String, String> map : supportLanguage.getDictionaryUrls()) {
-                DictionaryLinkView view = DictionaryLinkView_.build(getContext());
+            for(var map : supportLanguage.getDictionaryUrls()) {
+                var view = DictionaryLinkView_.build(getContext());
                 view.setDictionaryWord(dictionaryWord, map.get("name"), map.get("url"));
                 dictionaryLayer.addView(view);
             }
@@ -137,7 +134,7 @@ public class WordCardItemView extends RelativeLayout {
 
     @Click(R.id.hear)
     void onClickHear() {
-        Word word = dictionaryWord.getWord();
+        var word = dictionaryWord.getWord();
         if(word.getWordUid() < 141) {
             miscService.speech(word.getWord());
         } else {

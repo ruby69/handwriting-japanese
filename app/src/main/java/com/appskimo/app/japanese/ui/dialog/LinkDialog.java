@@ -9,7 +9,7 @@ public class LinkDialog extends WebViewDialog {
     @Override
     public void onStart() {
         super.onStart();
-        AlertDialog dialog = (AlertDialog) getDialog();
+        var dialog = (AlertDialog) getDialog();
         if (dialog != null) {
             webView.loadUrl(url);
         }

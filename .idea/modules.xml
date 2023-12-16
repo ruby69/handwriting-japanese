@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/android-pathview/android-pathview.iml" filepath="$PROJECT_DIR$/android-pathview/android-pathview.iml" />
       <module fileurl="file://$PROJECT_DIR$/android.kanji.appskimo.com.iml" filepath="$PROJECT_DIR$/android.kanji.appskimo.com.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spinnerwheel/spinnerwheel.iml" filepath="$PROJECT_DIR$/spinnerwheel/spinnerwheel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android-pathview/android.kanji.appskimo.com.android-pathview.iml" filepath="$PROJECT_DIR$/.idea/modules/android-pathview/android.kanji.appskimo.com.android-pathview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android-pathview/android.kanji.appskimo.com.android-pathview.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/android-pathview/android.kanji.appskimo.com.android-pathview.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android-pathview/android.kanji.appskimo.com.android-pathview.main.iml" filepath="$PROJECT_DIR$/.idea/modules/android-pathview/android.kanji.appskimo.com.android-pathview.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android-pathview/android.kanji.appskimo.com.android-pathview.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/android-pathview/android.kanji.appskimo.com.android-pathview.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.kanji.appskimo.com.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.kanji.appskimo.com.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.kanji.appskimo.com.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.kanji.appskimo.com.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.kanji.appskimo.com.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.kanji.appskimo.com.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.kanji.appskimo.com.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.kanji.appskimo.com.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spinnerwheel/android.kanji.appskimo.com.spinnerwheel.iml" filepath="$PROJECT_DIR$/.idea/modules/spinnerwheel/android.kanji.appskimo.com.spinnerwheel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spinnerwheel/android.kanji.appskimo.com.spinnerwheel.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/spinnerwheel/android.kanji.appskimo.com.spinnerwheel.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spinnerwheel/android.kanji.appskimo.com.spinnerwheel.main.iml" filepath="$PROJECT_DIR$/.idea/modules/spinnerwheel/android.kanji.appskimo.com.spinnerwheel.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spinnerwheel/android.kanji.appskimo.com.spinnerwheel.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/spinnerwheel/android.kanji.appskimo.com.spinnerwheel.unitTest.iml" />
     </modules>
   </component>
 </project>

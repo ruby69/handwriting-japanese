@@ -1,22 +1,21 @@
-apply plugin: 'com.android.application'
-apply plugin: 'idea'
-apply plugin: 'io.fabric'
+plugins {
+    id 'com.android.application'
+    id 'idea'
+    id 'com.google.firebase.crashlytics'
+    id 'com.google.gms.google-services'
+}
 
-def appVersionCode = 175
-def appVersionName = '1.7.5'
+def appVersionCode = 181
+def appVersionName = '1.8.1'
 
 android {
-    compileSdkVersion 29
-
-    dexOptions {
-        jumboMode = true
-        javaMaxHeapSize "2g"
-    }
+    namespace "com.appskimo.app.japanese"
+    compileSdkVersion 34
 
     defaultConfig {
         applicationId "com.appskimo.app.japanese"
-        minSdkVersion 17
-        targetSdkVersion 29
+        minSdkVersion 23
+        targetSdkVersion 34
         versionCode appVersionCode
         versionName appVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -37,11 +36,10 @@ android {
             proguardFile 'proguard-aa.pro'
             proguardFile 'proguard-common.pro'
             proguardFile 'proguard-eventbus.pro'
-            proguardFile 'proguard-fabric.pro'
+            proguardFile 'proguard-crashlytics.pro'
             proguardFile 'proguard-firebase.pro'
             proguardFile 'proguard-ormlite.pro'
             proguardFile 'proguard-daimajia.pro'
-            proguardFile 'proguard-glide.pro'
         }
     }
 
@@ -57,48 +55,36 @@ android {
         exclude 'META-INF/release-timestamp.txt'
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
-}
-
-repositories {
-    maven { url 'https://maven.fabric.io/public' }
-    flatDir { dirs 'libs' }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
+    implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-analytics")
 
-    // https://developer.android.com/jetpack/androidx/releases/archive/androidx
-    // https://developer.android.com/jetpack/androidx/releases
-    annotationProcessor 'androidx.annotation:annotation:1.1.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    annotationProcessor 'androidx.annotation:annotation:1.7.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
-    implementation 'com.google.android.material:material:1.2.0-alpha02'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'com.google.android.material:material:1.2.0'
 
-    // https://firebase.google.com/docs/android/setup
-    // https://firebase.google.com/support/release-notes/android
-    implementation 'com.google.firebase:firebase-core:17.2.1'
-    implementation 'com.google.firebase:firebase-ads:18.3.0'
-    implementation 'com.google.firebase:firebase-messaging:20.0.1'
-    implementation('com.crashlytics.sdk.android:crashlytics:2.10.1@aar') {
-        transitive = true
-    }
-
-    annotationProcessor 'org.androidannotations:androidannotations:4.7.0-SNAPSHOT'
-    implementation 'org.androidannotations:androidannotations-api:4.7.0-SNAPSHOT'
-    annotationProcessor 'org.androidannotations:ormlite:4.7.0-SNAPSHOT'
-    implementation 'org.androidannotations:ormlite-api:4.7.0-SNAPSHOT'
-    compileOnly 'org.projectlombok:lombok:1.16.20'
-    annotationProcessor 'org.projectlombok:lombok:1.16.20'
-    implementation 'org.greenrobot:eventbus:3.1.1'
+    annotationProcessor 'org.androidannotations:androidannotations:4.8.0'
+    implementation 'org.androidannotations:androidannotations-api:4.8.0'
+    annotationProcessor 'org.androidannotations:ormlite:4.8.0'
+    implementation 'org.androidannotations:ormlite-api:4.8.0'
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    implementation 'org.greenrobot:eventbus:3.3.1'
 
     implementation 'org.apache.commons:commons-lang3:3.7'
     implementation 'com.j256.ormlite:ormlite-android:5.1'
@@ -108,7 +94,7 @@ dependencies {
     implementation 'com.getbase:floatingactionbutton:1.10.1'
     implementation 'com.daimajia.easing:library:2.1@aar'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
-    implementation 'com.github.gcacace:signature-pad:1.2.1'
+    implementation 'com.github.gcacace:signature-pad:1.3.1'
 }
 
 idea {
@@ -116,6 +102,4 @@ idea {
         downloadSources = true
     }
 }
-
-apply plugin: 'com.google.gms.google-services'
 

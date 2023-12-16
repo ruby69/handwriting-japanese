@@ -2,7 +2,6 @@ package com.appskimo.app.japanese.ui.dialog;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -28,15 +27,15 @@ public class WebViewDialog extends CommonDialog {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        var builder = new AlertDialog.Builder(getActivity());
+        var inflater = getActivity().getLayoutInflater();
         builder.setView(init(inflater.inflate(R.layout.dialog_web_view, null)));
         return builder.create();
     }
 
     private View init(View view) {
-        progressView = (ProgressBar) view.findViewById(R.id.progressView);
-        webView = (WebView) view.findViewById(R.id.webView);
+        progressView = view.findViewById(R.id.progressView);
+        webView = view.findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(webViewClient);
         webView.setWebChromeClient(webChromeClient);

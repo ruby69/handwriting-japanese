@@ -25,7 +25,6 @@ import org.androidannotations.annotations.res.IntegerRes;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @EFragment(R.layout.fragment_list)
 public class ListFragment extends Fragment {
@@ -53,8 +52,8 @@ public class ListFragment extends Fragment {
     @Subscribe
     public void onEvent(SelectDictionary event) {
         dictionary = wordService.getSelectedDictionary();
-        List<DictionaryWord> list = new ArrayList<>(dictionary.getDictionaryWords());
-        if(dictionary.getDictionaryUid() == 10002 || dictionary.getDictionaryUid() == 10003) {
+        var list = new ArrayList<DictionaryWord>(dictionary.getDictionaryWords());
+        if (dictionary.getDictionaryUid() == 10002 || dictionary.getDictionaryUid() == 10003) {
             list.add(36, null);
             list.add(38, null);
             list.add(46, null);
@@ -65,7 +64,7 @@ public class ListFragment extends Fragment {
             list.add(53, null);
             list.add(54, null);
 
-            if(dictionary.getDictionaryUid() == 10003) {
+            if (dictionary.getDictionaryUid() == 10003) {
                 list.add(66, null);
                 list.add(67, null);
             }
@@ -77,7 +76,7 @@ public class ListFragment extends Fragment {
     }
 
     private void resetRecyclerViewLayout() {
-        Dictionary dictionary = wordService.getSelectedDictionary();
+        var dictionary = wordService.getSelectedDictionary();
         if(dictionary == null || dictionary.getDictionaryUid() == 10001 || dictionary.getDictionaryUid() == 10002 || dictionary.getDictionaryUid() == 10003) {
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), kanaColumnCount)); // kanaColumnCount
         } else {

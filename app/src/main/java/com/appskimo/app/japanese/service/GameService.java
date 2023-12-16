@@ -81,11 +81,11 @@ public class GameService {
     public void initializeSession(int position, int count, long hintDelay) {
         currentSession = new Session();
 
-        Dictionary dictionary = dictionaries.get(position);
-        List<DictionaryWord> list = new ArrayList<>(dictionary.getDictionaryWords());
+        var dictionary = dictionaries.get(position);
+        var list = new ArrayList<DictionaryWord>(dictionary.getDictionaryWords());
         Collections.shuffle(list);
         count = list.size() < count ? list.size() : count;
-        List<DictionaryWord> words = count == -1 ? list : list.subList(0, count);
+        var words = count == -1 ? list : list.subList(0, count);
 
         currentSession.setDictionary(dictionary);
         currentSession.setWords(words);
@@ -96,18 +96,18 @@ public class GameService {
     }
 
     public void initBoard(List<Button> buttons) {
-        List<DictionaryWord> words = currentSession.getWords();
-        List<DictionaryWord> usedWords = currentSession.getUsedWords();
-        List<DictionaryWord> remainWords = currentSession.getRemainWords();
+        var words = currentSession.getWords();
+        var usedWords = currentSession.getUsedWords();
+        var remainWords = currentSession.getRemainWords();
 
         int size = words.size();
-        if(size > buttons.size()) {
+        if (size > buttons.size()) {
             size = buttons.size();
         }
 
-        for(int i = 0; i<size; i++) {
-            DictionaryWord word = getWord(i);
-            Button button = buttons.get(i);
+        for( int i = 0; i<size; i++) {
+            var word = getWord(i);
+            var button = buttons.get(i);
             button.setText(word.getWord().getWord());
             button.setTag(word);
 
@@ -117,7 +117,7 @@ public class GameService {
     }
 
     public DictionaryWord getWord(int position) {
-        List<DictionaryWord> words = currentSession.getWords();
+        var words = currentSession.getWords();
         if(words.size() > position) {
             return words.get(position);
         } else {
@@ -208,7 +208,7 @@ public class GameService {
     }
 
     public DictionaryWord getRemovedCurrentWord() {
-        DictionaryWord word = currentSession.getWords().remove(0);
+        var word = currentSession.getWords().remove(0);
         currentSession.setCurrentWord(word);
         return word;
     }
@@ -232,11 +232,9 @@ public class GameService {
 
     public synchronized void processScore(long currentTouchedTime) {
         long addedValue = Session.SCORE_BASE;
-
         long timeGap = currentTouchedTime - currentSession.getLastTouchedTime();
-
         long hintDelay = currentSession.getSelectedHintDelay();
-        if(hintDelay == 3000L) {
+        if (hintDelay == 3000L) {
             if(timeGap < 501L) {
                 addedValue -= 0;
             } else if(timeGap < 1001L) {

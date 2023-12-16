@@ -43,7 +43,7 @@ public class StrokeOrderView extends View {
     public void onDraw(Canvas canvas) {
         canvas.setMatrix(matrix);
         if (orders != null && !orders.isEmpty()) {
-            for (Word.OrderPoint op : orders) {
+            for (var op : orders) {
                 canvas.drawText(String.valueOf(op.getOrder()), op.getX(), op.getY(), pencilPaint);
             }
         }

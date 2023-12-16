@@ -72,7 +72,7 @@ public class GamePlayFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewPager = (ViewPager) getActivity().findViewById(R.id.viewPager);
+        viewPager = getActivity().findViewById(R.id.viewPager);
     }
 
     @AfterInject
@@ -163,7 +163,7 @@ public class GamePlayFragment extends Fragment {
 
     @UiThread
     void showHintButton() {
-        Button button = findButton();
+        var button = findButton();
         if(button != null) {
             button.setBackgroundResource(R.drawable.number_star);
         }
@@ -172,8 +172,8 @@ public class GamePlayFragment extends Fragment {
     @Click({R.id.bt01, R.id.bt02, R.id.bt03, R.id.bt04, R.id.bt05, R.id.bt06, R.id.bt07, R.id.bt08, R.id.bt09, R.id.bt10, R.id.bt11, R.id.bt12, R.id.bt13, R.id.bt14, R.id.bt15, R.id.bt16, R.id.bt17, R.id.bt18, R.id.bt19, R.id.bt20, R.id.bt21, R.id.bt22, R.id.bt23, R.id.bt24, R.id.bt25})
     void onClickButton(View view) {
         if(!gameService.hasLockedTouch()) {
-            Button button = (Button) view;
-            DictionaryWord taggedWord = (DictionaryWord)button.getTag();
+            var button = (Button) view;
+            var taggedWord = (DictionaryWord) button.getTag();
 
             if(taggedWord == gameService.getCurrentWord()) {
                 long currentTouchedTime = SystemClock.elapsedRealtime();
@@ -205,7 +205,7 @@ public class GamePlayFragment extends Fragment {
         }
 
         if(!gameService.isEmptyRemain()) {
-            DictionaryWord remainWord = gameService.getRemovedRemainWord();
+            var remainWord = gameService.getRemovedRemainWord();
             button.setText(remainWord.getWord().getWord());
             button.setTag(remainWord);
             YoYo.with(Techniques.FadeIn).duration(1500).playOn(button);
@@ -221,11 +221,11 @@ public class GamePlayFragment extends Fragment {
     private void populateMeaning(TextView textView, DictionaryWord word) {
         if(word != null) {
             int codeValue = Integer.parseInt(word.getWord().getCode(), 16);
-            if(codeValue > 12353 && codeValue < 12510) {
+            if (codeValue > 12353 && codeValue < 12510) {
                 textView.setText(word.getWord().getPronunciation());
             } else {
-                SupportLanguage supportLanguage = SupportLanguage.valueOf(prefs.userLanguage().getOr("en"));
-                String country = prefs.userCountry().getOr("US");
+                var supportLanguage = SupportLanguage.valueOf(prefs.userLanguage().getOr("en"));
+                var country = prefs.userCountry().getOr("US");
                 textView.setText(word.getWord().getMeaningForGame(supportLanguage, country));
             }
         } else {
@@ -270,8 +270,8 @@ public class GamePlayFragment extends Fragment {
     }
 
     private Button findButton(){
-        for(Button button : buttons) {
-            DictionaryWord taggedWord = (DictionaryWord) button.getTag();
+        for (var button : buttons) {
+            var taggedWord = (DictionaryWord) button.getTag();
             if(taggedWord != null && gameService.getCurrentWord() == taggedWord) {
                 return button;
             }
@@ -281,7 +281,7 @@ public class GamePlayFragment extends Fragment {
     }
 
     private void cleanButtons() {
-        for(Button button : buttons) {
+        for (var button : buttons) {
             button.setBackgroundResource(R.drawable.bg_button_game);
             button.setText(null);
             button.setTag(null);
@@ -289,14 +289,14 @@ public class GamePlayFragment extends Fragment {
     }
 
     private void setButtonsTextColor(int color) {
-        for(Button button : buttons) {
+        for (var button : buttons) {
             button.setTextColor(color);
         }
     }
 
     @Subscribe
     public void onEvent(GameNextAction event) {
-        if(event.getKind() == GameNextAction.Kind.PLAY) {
+        if (event.getKind() == GameNextAction.Kind.PLAY) {
             initialize();
         } else {
             viewPager.setCurrentItem(event.getKind().ordinal(), Boolean.TRUE);

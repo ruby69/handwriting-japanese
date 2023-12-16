@@ -2,7 +2,6 @@ package com.appskimo.app.japanese.ui.dialog;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
@@ -27,21 +26,21 @@ public class PronounDialog extends CommonDialog {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        var builder = new AlertDialog.Builder(getActivity());
+        var inflater = getActivity().getLayoutInflater();
         builder.setView(init(inflater.inflate(R.layout.dialog_simple_selector, null)));
         return builder.create();
     }
 
     private View init(View view) {
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        recyclerView = view.findViewById(R.id.recyclerView);
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        AlertDialog dialog = (AlertDialog) getDialog();
+        var dialog = (AlertDialog) getDialog();
         if (dialog != null) {
             recyclerViewAdapter = PronounRecyclerViewAdapter_.getInstance_(getActivity());
             if (recyclerViewAdapter != null && pronouns != null) {
